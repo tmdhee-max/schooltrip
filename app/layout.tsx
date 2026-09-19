@@ -1,5 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import Tabs from "@/components/Tabs";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "항도여중 수학여행",
@@ -13,26 +15,31 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className="flex min-h-screen flex-col">
-        <header className="sticky top-0 z-50 w-full border-b bg-white">
-          <div className="container mx-auto flex h-16 items-center px-4">
-            <div className="font-bold text-xl text-blue-600">
-              항도여중 수학여행
-            </div>
-            <nav className="ml-auto flex gap-4">
-              <a href="#" className="text-sm font-medium hover:underline underline-offset-4">소개</a>
-              <a href="#" className="text-sm font-medium hover:underline underline-offset-4">일정</a>
-            </nav>
+      <body className="flex min-h-screen flex-col bg-gray-50 text-gray-900">
+        <header className="w-full bg-white pt-10 pb-2">
+          <div className="container mx-auto px-4 flex flex-col items-center">
+            <Link href="/">
+              <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-2 tracking-tight">
+                항도여중 수학여행
+              </h1>
+            </Link>
+            <p className="text-lg md:text-xl text-gray-600 font-medium">
+              10월 14일(수) ~ 10월 16일(금)
+            </p>
           </div>
+          <Tabs />
         </header>
-        <main className="flex-1">
+        <main className="flex-1 w-full max-w-4xl mx-auto p-4 md:p-6">
           {children}
         </main>
-        <footer className="border-t py-6 md:py-0">
-          <div className="container mx-auto flex flex-col items-center justify-center gap-4 md:h-16 md:flex-row px-4">
-            <p className="text-center text-sm leading-loose text-gray-500 md:text-left">
+        <footer className="border-t py-6 mt-10 bg-white">
+          <div className="container mx-auto flex flex-col items-center justify-center gap-2 px-4">
+            <p className="text-center text-sm text-gray-500">
               © 2026 항도여중 수학여행. All rights reserved.
             </p>
+            <Link href="/admin/login" className="text-xs text-gray-400 hover:underline">
+              관리자 모드
+            </Link>
           </div>
         </footer>
       </body>
